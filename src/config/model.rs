@@ -357,15 +357,15 @@ pub struct KeysConfig {
     pub workspace_picker: BindingConfig,
     /// Open the session navigator. Default: "prefix+g"
     pub goto: BindingConfig,
-    /// Move workspace selection up in navigate mode. Default: "up".
+    /// Move workspace selection up in navigate mode. Default: ["up", "k"].
     pub navigate_workspace_up: BindingConfig,
-    /// Move workspace selection down in navigate mode. Default: "down".
+    /// Move workspace selection down in navigate mode. Default: ["down", "j"].
     pub navigate_workspace_down: BindingConfig,
     /// Focus the pane to the left in navigate mode. Default: "h". Left arrow is always an alias.
     pub navigate_pane_left: BindingConfig,
-    /// Focus the pane below in navigate mode. Default: "j".
+    /// Focus the pane below in navigate mode. Default: "ctrl+n".
     pub navigate_pane_down: BindingConfig,
-    /// Focus the pane above in navigate mode. Default: "k".
+    /// Focus the pane above in navigate mode. Default: "ctrl+p".
     pub navigate_pane_up: BindingConfig,
     /// Focus the pane to the right in navigate mode. Default: "l". Right arrow is always an alias.
     pub navigate_pane_right: BindingConfig,
@@ -1128,11 +1128,11 @@ impl Default for KeysConfig {
             close_workspace: BindingConfig::one("prefix+shift+d"),
             workspace_picker: BindingConfig::one("prefix+w"),
             goto: BindingConfig::one("prefix+g"),
-            navigate_workspace_up: BindingConfig::one("up"),
-            navigate_workspace_down: BindingConfig::one("down"),
+            navigate_workspace_up: BindingConfig::Many(vec!["up".into(), "k".into()]),
+            navigate_workspace_down: BindingConfig::Many(vec!["down".into(), "j".into()]),
             navigate_pane_left: BindingConfig::one("h"),
-            navigate_pane_down: BindingConfig::one("j"),
-            navigate_pane_up: BindingConfig::one("k"),
+            navigate_pane_down: BindingConfig::one("ctrl+n"),
+            navigate_pane_up: BindingConfig::one("ctrl+p"),
             navigate_pane_right: BindingConfig::one("l"),
             detach: BindingConfig::one("prefix+q"),
             reload_config: BindingConfig::one("prefix+shift+r"),

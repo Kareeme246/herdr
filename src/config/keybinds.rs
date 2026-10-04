@@ -1973,6 +1973,31 @@ prefix = []
     }
 
     #[test]
+    fn default_navigate_workspace_bindings_include_vim_keys() {
+        let config = Config::default();
+        let keybinds = config.keybinds();
+        let key = |code, mods| TerminalKey::new(code, mods);
+
+        for code in [KeyCode::Up, KeyCode::Char('k')] {
+            assert!(keybinds
+                .navigate
+                .workspace_up
+                .matches_direct_key(&key(code, KeyModifiers::empty())));
+        }
+        for code in [KeyCode::Down, KeyCode::Char('j')] {
+            assert!(keybinds
+                .navigate
+                .workspace_down
+                .matches_direct_key(&key(code, KeyModifiers::empty())));
+        }
+        assert!(keybinds
+            .navigate
+            .pane_down
+            .matches_direct_key(&key(KeyCode::Char('n'), KeyModifiers::CONTROL)));
+        assert!(config.collect_diagnostics().is_empty());
+    }
+
+    #[test]
     fn navigate_bindings_allow_plain_keys_and_reject_local_conflicts() {
         let config: Config = toml::from_str(
             r#"

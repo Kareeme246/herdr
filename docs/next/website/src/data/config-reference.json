@@ -544,13 +544,13 @@
         {
           "key": "keys.navigate_workspace_up",
           "type": "keybinding",
-          "default": "\"up\"",
+          "default": "[\"up\", \"k\"]",
           "description": "Move workspace selection up in navigate mode."
         },
         {
           "key": "keys.navigate_workspace_down",
           "type": "keybinding",
-          "default": "\"down\"",
+          "default": "[\"down\", \"j\"]",
           "description": "Move workspace selection down in navigate mode."
         },
         {
@@ -562,13 +562,13 @@
         {
           "key": "keys.navigate_pane_down",
           "type": "keybinding",
-          "default": "\"j\"",
+          "default": "\"ctrl+n\"",
           "description": "Focus the pane below in navigate mode."
         },
         {
           "key": "keys.navigate_pane_up",
           "type": "keybinding",
-          "default": "\"k\"",
+          "default": "\"ctrl+p\"",
           "description": "Focus the pane above in navigate mode."
         },
         {
